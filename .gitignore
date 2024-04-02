@@ -132,3 +132,6 @@ dmypy.json
 .idea/
 recipe_client
 example.db
+
+# Pipenv
+Pipfile
