@@ -3,6 +3,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, APIRouter, Request, Depends
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -33,7 +34,7 @@ if settings.BACKEND_CORS_ORIGINS:
 def root(
     request: Request,
     db: Session = Depends(deps.get_db),
-) -> dict:
+) -> HTMLResponse:
     """
     Root GET
     """

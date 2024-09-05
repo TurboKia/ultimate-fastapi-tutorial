@@ -1,5 +1,6 @@
 from fastapi import FastAPI, APIRouter, Query, HTTPException, Request, Depends
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
 
 from typing import Optional, Any
 from pathlib import Path
@@ -28,7 +29,7 @@ api_router = APIRouter()
 def root(
     request: Request,
     db: Session = Depends(deps.get_db),
-) -> dict:
+) -> HTMLResponse:
     """
     Root GET
     """

@@ -3,6 +3,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, APIRouter, Request, Depends
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 
 from app import crud
@@ -21,7 +22,7 @@ app = FastAPI(title="Recipe API", openapi_url=f"{settings.API_V1_STR}/openapi.js
 def root(
     request: Request,
     db: Session = Depends(deps.get_db),
-) -> dict:
+) -> HTMLResponse:
     """
     Root GET
     """

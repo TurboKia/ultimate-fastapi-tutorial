@@ -1,5 +1,6 @@
 from fastapi import FastAPI, APIRouter, Query, HTTPException, Request
 from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
 
 from typing import Optional, Any
 from pathlib import Path
@@ -21,7 +22,7 @@ api_router = APIRouter()
 # https://www.starlette.io/templates/
 # https://jinja.palletsprojects.com/en/3.0.x/templates/#synopsis
 @api_router.get("/", status_code=200)
-def root(request: Request) -> dict:
+def root(request: Request) -> HTMLResponse:
     """
     Root GET
     """
